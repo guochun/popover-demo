@@ -29,18 +29,3 @@ wrapper.addEventListener('click', function(e) {
 
 // });
 
-
-
-// poButton.addEventListener('click', function(e){
-//     this.removeEventListener("click",hide);
-//     function hide() {
-//         popover.style.display = 'none';
-//         this.removeEventListener("click",hide);
-//     }
-//     popover.style.display = 'block'; 
-//     var timer = setTimeout(() => {
-//         document.addEventListener('click', hide);
-//         clearTimeout(timer)
-//     },200);
-
-// });
