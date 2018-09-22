@@ -3,17 +3,19 @@ let popover = document.getElementById('popover');
 let wrapper = document.getElementById('wrapper');
 
 //第一种方法
-// poButton.addEventListener('click', function (e) {
+poButton.addEventListener('click', function (e) {
 
-//     function hide() {
-//         popover.style.display = 'none';
-//         this.removeEventListener("click", hide);
-//     }
-//     popover.style.display = 'block';
-//     document.addEventListener('click', hide);
-// });
+    function hide() {
+        popover.style.display = 'none';
+        this.removeEventListener("click", hide);
+    }
+    popover.style.display = 'block';
+    document.addEventListener('click', hide);
+});
 
-
+wrapper.addEventListener('click', function(e) {
+    e.stopPropagation();
+});
 
 //第二种方法
 // poButton.addEventListener('click', function(e){
@@ -27,9 +29,7 @@ let wrapper = document.getElementById('wrapper');
 
 // });
 
-// wrapper.addEventListener('click', function(e) {
-//     e.stopPropagation();
-// });
+
 
 // poButton.addEventListener('click', function(e){
 //     this.removeEventListener("click",hide);
