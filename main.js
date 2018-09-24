@@ -1,31 +1,33 @@
 let poButton = document.getElementById('showPopover');
 let popover = document.getElementById('popover');
 let wrapper = document.getElementById('wrapper');
+//是否弹出
+let isPopOver = false;
 
-//第一种方法
+function hide() {
+    isPopOver = false
+    popover.style.display = 'none';
+}
 poButton.addEventListener('click', function (e) {
 
-    function hide() {
+    if(!isPopOver) {
+        popover.style.display = 'block';
+        document.addEventListener('click',hide,{once: true});
+        isPopOver = true;
+
+    }else {
+        
+        document.removeEventListener('click', hide)
         popover.style.display = 'none';
-        this.removeEventListener("click", hide);
+        isPopOver = false;
     }
-    popover.style.display = 'block';
-    document.addEventListener('click', hide);
+   
 });
 
 wrapper.addEventListener('click', function(e) {
+    //阻止事件冒泡
     e.stopPropagation();
 });
 
-//第二种方法
-// poButton.addEventListener('click', function(e){
 
-//     popover.style.display = 'block';  
-//     document.addEventListener('click', function (){
-//         popover.style.display = 'none';  
-//         //console.log(caller)
-//     },{once: true});
-
-
-// });
 
